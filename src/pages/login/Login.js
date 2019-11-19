@@ -23,24 +23,24 @@ import google from "../../images/google.svg";
 import { useUserDispatch, loginUser } from "../../context/UserContext";
 
 function Login(props) {
-  var classes = useStyles();
-
+  let classes = useStyles();
   // global
-  var userDispatch = useUserDispatch();
+  let userDispatch = useUserDispatch();
 
   // local
-  var [isLoading, setIsLoading] = useState(false);
-  var [error, setError] = useState(null);
-  var [activeTabId, setActiveTabId] = useState(0);
-  var [nameValue, setNameValue] = useState("");
-  var [loginValue, setLoginValue] = useState("");
-  var [passwordValue, setPasswordValue] = useState("");
-
+  let [isLoading, setIsLoading] = useState(false);
+  let [error, setError] = useState(null);
+  let [activeTabId, setActiveTabId] = useState(0);
+  let [nameValue, setNameValue] = useState("");
+  let [loginValue, setLoginValue] = useState("");
+  let [passwordValue, setPasswordValue] = useState("");
+  let [token, setToken] = useState("");
+  // console.log(token)
   return (
     <Grid container className={classes.container}>
       <div className={classes.logotypeContainer}>
-        <img src={logo} alt="logo" className={classes.logotypeImage} />
-        <Typography className={classes.logotypeText}>Material Admin</Typography>
+        <img src='youplay_logo.png' alt="logo" className={classes.logotypeImage} />
+        <Typography className={classes.logotypeText}>You Play Tool</Typography>
       </div>
       <div className={classes.formContainer}>
         <div className={classes.form}>
@@ -211,6 +211,7 @@ function Login(props) {
                         setError,
                       )
                     }
+
                     disabled={
                       loginValue.length === 0 ||
                       passwordValue.length === 0 ||
@@ -244,9 +245,9 @@ function Login(props) {
             </React.Fragment>
           )}
         </div>
-        <Typography color="primary" className={classes.copyright}>
-          © 2014-2019 Flatlogic, LLC. All rights reserved.
-        </Typography>
+
+
+
       </div>
     </Grid>
   );

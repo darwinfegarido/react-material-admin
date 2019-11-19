@@ -15,6 +15,8 @@ import Header from "../Header";
 import Sidebar from "../Sidebar";
 
 // pages
+import Home from "../../pages/home";
+
 import Dashboard from "../../pages/dashboard";
 import Typography from "../../pages/typography";
 import Notifications from "../../pages/notifications";
@@ -31,7 +33,6 @@ function Layout(props) {
 
   // global
   var layoutState = useLayoutState();
-
   return (
     <div className={classes.root}>
         <>
@@ -44,6 +45,7 @@ function Layout(props) {
           >
             <div className={classes.fakeToolbar} />
             <Switch>
+              <Route path="/app/home" component={Home} />
               <Route path="/app/dashboard" component={Dashboard} />
               <Route path="/app/typography" component={Typography} />
               <Route path="/app/tables" component={Tables} />

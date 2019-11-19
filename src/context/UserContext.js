@@ -7,6 +7,8 @@ function userReducer(state, action) {
   switch (action.type) {
     case "LOGIN_SUCCESS":
       return { ...state, isAuthenticated: true };
+    case "LOGIN_FAILURE":
+      return { ...state, isAuthenticated: false };
     case "SIGN_OUT_SUCCESS":
       return { ...state, isAuthenticated: false };
     default: {
@@ -31,6 +33,7 @@ function UserProvider({ children }) {
 
 function useUserState() {
   var context = React.useContext(UserStateContext);
+
   if (context === undefined) {
     throw new Error("useUserState must be used within a UserProvider");
   }
@@ -45,23 +48,50 @@ function useUserDispatch() {
   return context;
 }
 
+
+
 export { UserProvider, useUserState, useUserDispatch, loginUser, signOut };
 
 // ###########################################################
 
-function loginUser(dispatch, login, password, history, setIsLoading, setError) {
-  setError(false);
+async function loginUser(dispatch, login, password, history, setIsLoading, setError ) {
+  // setError(false);
   setIsLoading(true);
 
   if (!!login && !!password) {
-    setTimeout(() => {
-      localStorage.setItem("id_token", "1");
-      dispatch({ type: "LOGIN_SUCCESS" });
-      setError(null);
-      setIsLoading(false);
+    const url = 'http://localhost/login'
+    const data = {
+      email:login,
+    	password:password
+    }
+    const loginToApi = await fetch(url, {
+      method: 'post',
+      headers: {'Content-Type':'application/json'},
+      body:JSON.stringify(data)
+    }).then((res) => res.json())
 
-      history.push("/app/dashboard");
-    }, 2000);
+    const result = await loginToApi
+    const status = result.status
+    const message = result.message
+
+    if(status === 200 && message === 'Success'){
+      setTimeout(() => {
+        // localStorage.setItem("id_token", "1");
+        // localStorage.setItem("token", result.data);
+        // setToken(result.data)
+        dispatch({ type: "LOGIN_SUCCESS" });
+        setError(false);
+        setIsLoading(false);
+
+        history.push("/app/home");
+      }, 2000);
+    }else{
+      setTimeout(() => {
+        setError(true);
+        setIsLoading(false);
+      }, 2000);
+    }
+
   } else {
     dispatch({ type: "LOGIN_FAILURE" });
     setError(true);
@@ -70,7 +100,9 @@ function loginUser(dispatch, login, password, history, setIsLoading, setError) {
 }
 
 function signOut(dispatch, history) {
-  localStorage.removeItem("id_token");
+  // localStorage.removeItem("id_token");
+  // localStorage.removeItem("token");
+
   dispatch({ type: "SIGN_OUT_SUCCESS" });
   history.push("/login");
 }
