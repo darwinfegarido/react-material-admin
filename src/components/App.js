@@ -14,7 +14,9 @@ import { useUserState } from "../context/UserContext";
 export default function App() {
   // global
   var { isAuthenticated } = useUserState();
-  isAuthenticated = true
+  // isAuthenticated = true
+  let [token, setToken] = useState("");
+
   return (
     <HashRouter>
       <Switch>
@@ -24,8 +26,8 @@ export default function App() {
           path="/app"
           render={() => <Redirect to="/app/home" />}
         />
-        <PrivateRoute path="/app" component={() => <Layout  />} />
-        <PublicRoute path="/login" component={() => <Login  />} />
+      <PrivateRoute path="/app" component={() => <Layout  token={token} setToken={setToken}/>} />
+        <PublicRoute path="/login" component={() => <Login setToken={setToken}/>} />
         <Route component={Error} />
       </Switch>
     </HashRouter>

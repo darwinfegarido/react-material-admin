@@ -20,7 +20,7 @@ import logo from "./logo.svg";
 import google from "../../images/google.svg";
 
 // context
-import { useUserDispatch, loginUser } from "../../context/UserContext";
+import { useUserDispatch, loginUser, register } from "../../context/UserContext";
 
 function Login(props) {
   let classes = useStyles();
@@ -30,12 +30,15 @@ function Login(props) {
   // local
   let [isLoading, setIsLoading] = useState(false);
   let [error, setError] = useState(null);
+  let [errorValue, setErrorValue] = useState(null);
+  let [successValue, setSuccessValue] = useState(null);
   let [activeTabId, setActiveTabId] = useState(0);
   let [nameValue, setNameValue] = useState("");
   let [loginValue, setLoginValue] = useState("");
+  let [firstname, setFirstname] = useState("");
+  let [lastname, setLastname] = useState("");
   let [passwordValue, setPasswordValue] = useState("");
-  let [token, setToken] = useState("");
-  // console.log(token)
+  let setToken = props.setToken
   return (
     <Grid container className={classes.container}>
       <div className={classes.logotypeContainer}>
@@ -119,6 +122,7 @@ function Login(props) {
                         props.history,
                         setIsLoading,
                         setError,
+                        setToken,
                       )
                     }
                     variant="contained"
@@ -148,22 +152,37 @@ function Login(props) {
               </Typography>
               <Fade in={error}>
                 <Typography color="secondary" className={classes.errorMessage}>
-                  Something is wrong with your login or password :(
+                  {errorValue}
                 </Typography>
               </Fade>
               <TextField
-                id="name"
+                id="firstname"
                 InputProps={{
                   classes: {
                     underline: classes.textFieldUnderline,
                     input: classes.textField,
                   },
                 }}
-                value={nameValue}
-                onChange={e => setNameValue(e.target.value)}
+                value={firstname}
+                onChange={e => setFirstname(e.target.value)}
                 margin="normal"
-                placeholder="Full Name"
-                type="email"
+                placeholder="Firstname"
+                type="text"
+                fullWidth
+              />
+              <TextField
+                id="lastname"
+                InputProps={{
+                  classes: {
+                    underline: classes.textFieldUnderline,
+                    input: classes.textField,
+                  },
+                }}
+                value={lastname}
+                onChange={e => setLastname(e.target.value)}
+                margin="normal"
+                placeholder="Lastname"
+                type="text"
                 fullWidth
               />
               <TextField
@@ -202,20 +221,25 @@ function Login(props) {
                 ) : (
                   <Button
                     onClick={() =>
-                      loginUser(
+                      register(
                         userDispatch,
+                        firstname,
+                        lastname,
                         loginValue,
                         passwordValue,
                         props.history,
                         setIsLoading,
                         setError,
+                        setErrorValue,
+                        setSuccessValue,
                       )
                     }
 
                     disabled={
                       loginValue.length === 0 ||
                       passwordValue.length === 0 ||
-                      nameValue.length === 0
+                      firstname.length === 0 ||
+                      lastname.length === 0
                     }
                     size="large"
                     variant="contained"

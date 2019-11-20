@@ -44,7 +44,6 @@ const PieChartData = [
 export default function Home(props) {
   var classes = useStyles();
   var theme = useTheme();
-
   // local
   var [mainChartState, setMainChartState] = useState("monthly");
 
@@ -63,8 +62,11 @@ export default function Home(props) {
       ))}
       </Grid>
 
+      <Typography size="md" weight="medium">
+        <br />
+        Users Summary
+      </Typography>
       <Grid container spacing={4}>
-
         <Grid item lg={3} md={4} sm={6} xs={12}>
           <Widget
             title="Visits Today"

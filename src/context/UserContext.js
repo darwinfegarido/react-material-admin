@@ -50,11 +50,11 @@ function useUserDispatch() {
 
 
 
-export { UserProvider, useUserState, useUserDispatch, loginUser, signOut };
+export { UserProvider, useUserState, useUserDispatch, loginUser, register, signOut };
 
 // ###########################################################
 
-async function loginUser(dispatch, login, password, history, setIsLoading, setError ) {
+async function loginUser(dispatch, login, password, history, setIsLoading, setError, setToken) {
   // setError(false);
   setIsLoading(true);
 
@@ -77,8 +77,7 @@ async function loginUser(dispatch, login, password, history, setIsLoading, setEr
     if(status === 200 && message === 'Success'){
       setTimeout(() => {
         // localStorage.setItem("id_token", "1");
-        // localStorage.setItem("token", result.data);
-        // setToken(result.data)
+        setToken(result.data)
         dispatch({ type: "LOGIN_SUCCESS" });
         setError(false);
         setIsLoading(false);
@@ -99,10 +98,53 @@ async function loginUser(dispatch, login, password, history, setIsLoading, setEr
   }
 }
 
-function signOut(dispatch, history) {
-  // localStorage.removeItem("id_token");
-  // localStorage.removeItem("token");
+async function register(dispatch, firstname, lastname, email, password, history, setIsLoading, setError, setErrorValue, setSuccessValue) {
+  // setError(false);
+  setIsLoading(true);
+  if (!!firstname && !!lastname && !!email && !!password) {
+    const url = 'http://localhost/register'
+    const data = {
+        "email": email,
+        "password": password,
+        "firstname": firstname,
+        "lastname": lastname
+    }
+    const loginToApi = await fetch(url, {
+      method: 'post',
+      headers: {'Content-Type':'application/json'},
+      body:JSON.stringify(data)
+    }).then((res) => res.json())
 
+    const result = await loginToApi
+    const status = result.status
+    const message = result.message
+    if(status === 201 && message === 'Success'){
+      setSuccessValue("Registration success! Please Login")
+      setTimeout(() => {
+        // localStorage.setItem("id_token", "1");
+        // dispatch({ type: "LOGIN_SUCCESS" });
+        setError(false);
+        setIsLoading(false);
+
+        history.push("/app/home");
+      }, 2000);
+    }else{
+      setErrorValue(message)
+      setTimeout(() => {
+        setError(true);
+        setIsLoading(false);
+      }, 2000);
+    }
+
+  } else {
+    dispatch({ type: "LOGIN_FAILURE" });
+    setError(true);
+    setIsLoading(false);
+  }
+}
+
+function signOut(dispatch, history, setToken) {
+  setToken('')
   dispatch({ type: "SIGN_OUT_SUCCESS" });
   history.push("/login");
 }

@@ -136,7 +136,7 @@ export default function Header(props) {
           )}
         </IconButton>
         <Typography variant="h6" weight="medium" className={classes.logotype}>
-          You Play Admin
+          Welcome Admin
         </Typography>
         <div className={classes.grow} />
         <div
@@ -291,11 +291,10 @@ export default function Header(props) {
             </Typography>
             <Typography
               className={classes.profileMenuLink}
-              component="a"
+              component="p"
               color="primary"
-              href="https://flatlogic.com"
             >
-              Flalogic.com
+              administrator
             </Typography>
           </div>
           <MenuItem
@@ -326,7 +325,7 @@ export default function Header(props) {
             <Typography
               className={classes.profileMenuLink}
               color="primary"
-              onClick={() => signOut(userDispatch, props.history)}
+              onClick={() => signOut(userDispatch, props.history, props.setToken)}
             >
               Sign Out
             </Typography>
