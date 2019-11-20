@@ -35,36 +35,69 @@ const structure = [
     link: "/app/home",
     icon: <HomeIcon />
   },
+  {
+    id: 31,
+    label: "Analytics",
+    link: "/app/analytics",
+    icon: <NotificationsIcon />
+  },
 
-  { id: 0,
-    label: "Dashboard",
-    link: "/app/dashboard",
-    icon: <HomeIcon />
-  },
   {
-    id: 1,
-    label: "Typography",
-    link: "/app/typography",
-    icon: <TypographyIcon />,
-  },
-  { id: 2, label: "Tables", link: "/app/tables", icon: <TableIcon /> },
-  {
-    id: 3,
-    label: "Notifications",
-    link: "/app/notifications",
-    icon: <NotificationsIcon />,
-  },
-  {
-    id: 4,
-    label: "UI Elements",
-    link: "/app/ui",
+    id: 32,
+    label: "Navigation",
+    link: "/app/contents",
     icon: <UIElementsIcon />,
     children: [
-      { label: "Icons", link: "/app/ui/icons" },
-      { label: "Charts", link: "/app/ui/charts" },
-      { label: "Maps", link: "/app/ui/maps" },
+      { label: "Contents", link: "/app/contents/main" },
+      { label: "Promotions", link: "/app/contents/promotion" },
+      { label: "Games", link: "/app/contents/games" },
+      { label: "Articles", link: "/app/contents/articles" },
+      { label: "Banners", link: "/app/contents/banners" },
+      { label: "Videos", link: "/app/contents/videos" },
     ],
   },
+  {
+    id: 33,
+    label: "Account Management",
+    link: "/app/users",
+    icon: <TypographyIcon />
+  },
+  {
+    id: 34,
+    label: "Redemption",
+    link: "/app/redemptions",
+    icon: <FAQIcon />
+  },
+  // {
+  //   id: 0,
+  //   label: "Dashboard",
+  //   link: "/app/dashboard",
+  //   icon: <HomeIcon />
+  // },
+  // {
+  //   id: 1,
+  //   label: "Typography",
+  //   link: "/app/typography",
+  //   icon: <TypographyIcon />,
+  // },
+  // { id: 2, label: "Tables", link: "/app/tables", icon: <TableIcon /> },
+  // {
+  //   id: 3,
+  //   label: "Notifications",
+  //   link: "/app/notifications",
+  //   icon: <NotificationsIcon />,
+  // },
+  // {
+  //   id: 4,
+  //   label: "UI Elements",
+  //   link: "/app/ui",
+  //   icon: <UIElementsIcon />,
+  //   children: [
+  //     { label: "Icons", link: "/app/ui/icons" },
+  //     { label: "Charts", link: "/app/ui/charts" },
+  //     { label: "Maps", link: "/app/ui/maps" },
+  //   ],
+  // },
 ];
 
 function Sidebar({ location }) {

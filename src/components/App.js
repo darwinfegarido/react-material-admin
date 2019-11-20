@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { HashRouter, Route, Switch, Redirect } from "react-router-dom";
 
+//import bootstrap
+import 'bootstrap/dist/css/bootstrap.css';
+
 // components
 import Layout from "./Layout";
 

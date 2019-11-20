@@ -14,9 +14,22 @@ import useStyles from "./styles";
 import Header from "../Header";
 import Sidebar from "../Sidebar";
 
-// pages
-import Home from "../../pages/home";
+// custompage
+import Home from "../../custompage/home";
+import Analytics from "../../custompage/analytics";
 
+import Content from "../../custompage/content";
+import Games from "../../custompage/games";
+import Promotions from "../../custompage/promotions";
+import Articles from "../../custompage/articles";
+import Banners from "../../custompage/banners";
+import Videos from "../../custompage/videos";
+
+
+import Users from "../../custompage/users";
+import Redemption from "../../custompage/redemption";
+
+// pages
 import Dashboard from "../../pages/dashboard";
 import Typography from "../../pages/typography";
 import Notifications from "../../pages/notifications";
@@ -44,19 +57,24 @@ function Layout(props) {
           >
             <div className={classes.fakeToolbar} />
             <Switch>
+
               <Route path="/app/home" component={Home} />
-              <Route path="/app/dashboard" component={Dashboard} />
-              <Route path="/app/typography" component={Typography} />
-              <Route path="/app/tables" component={Tables} />
-              <Route path="/app/notifications" component={Notifications} />
+              <Route path="/app/analytics" component={Analytics} />
+              <Route path="/app/users" component={Users} />
+              <Route path="/app/redemptions" component={Redemption} />
+
               <Route
                 exact
-                path="/app/ui"
-                render={() => <Redirect to="/app/ui/icons" />}
+                path="/app/contents"
+                render={() => <Redirect to="/app/contents/main" />}
               />
-              <Route path="/app/ui/maps" component={Maps} />
-              <Route path="/app/ui/icons" component={Icons} />
-              <Route path="/app/ui/charts" component={Charts} />
+                <Route path="/app/contents/main" component={Content} />
+                <Route path="/app/contents/promotion" component={Promotions} />
+                <Route path="/app/contents/games" component={Games} />
+                <Route path="/app/contents/articles" component={Articles} />
+                <Route path="/app/contents/banners" component={Banners} />
+                <Route path="/app/contents/videos" component={Videos} />
+
             </Switch>
           </div>
         </>
