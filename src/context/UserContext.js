@@ -59,7 +59,7 @@ async function loginUser(dispatch, login, password, history, setIsLoading, setEr
   setIsLoading(true);
 
   if (!!login && !!password) {
-    const url = 'http://localhost/login'
+    const url = `https://api.youplayed.tk/login`
     const data = {
       email:login,
     	password:password
@@ -102,7 +102,7 @@ async function register(dispatch, firstname, lastname, email, password, history,
   // setError(false);
   setIsLoading(true);
   if (!!firstname && !!lastname && !!email && !!password) {
-    const url = 'http://localhost/register'
+    const url = `https://api.youplayed.tk/register`
     const data = {
         "email": email,
         "password": password,

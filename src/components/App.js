@@ -17,7 +17,7 @@ import { useUserState } from "../context/UserContext";
 export default function App() {
   // global
   var { isAuthenticated } = useUserState();
-  isAuthenticated = true
+  // isAuthenticated = true
   let [token, setToken] = useState("");
 
   return (
