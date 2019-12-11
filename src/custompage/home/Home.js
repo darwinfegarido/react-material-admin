@@ -275,18 +275,18 @@ const COLORS = [getRandomColor(), getRandomColor(), getRandomColor(), getRandomC
       </Grid>
 
       <Grid item xs={12} md={4} lg={4}>
-          <Widget title="Feeds" upperTitle disableWidgetMenu >
+          <Widget title="Latest News" upperTitle disableWidgetMenu >
 
               <Grid container spacing={1}>
                 <Grid item xs={12} md={4} lg={4}>
-                    <img className="card-img-top" src="https://mdbootstrap.com/img/Photos/Avatars/img%20(26).jpg" alt="Card image cap" />
+                    <img className="card-img-top" src="http://millennialmarketing.com/wp-content/uploads/2010/04/breaking-news.jpg" alt="Card image cap" />
                 </Grid>
                 <Grid item xs={12} md={8} lg={8}>
                   <Typography size="xl" weight="medium">
-                    <a className="btn" href="#">Anna Feliciano</a>
+                    <a className="btn" href="#">Youplay Updates</a>
                   </Typography>
                   <Typography size="sm" weight="medium">
-                    "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
+                    "You Play is a data driven app that will help you build strategy for your business..."
                   </Typography>
                 </Grid>
               </Grid>
@@ -294,11 +294,11 @@ const COLORS = [getRandomColor(), getRandomColor(), getRandomColor(), getRandomC
               <br />
               <Grid container spacing={1}>
                 <Grid item xs={12} md={4} lg={4}>
-                    <img className="card-img-top" src="https://mdbootstrap.com/img/Photos/Avatars/img%20(26).jpg" alt="Card image cap" />
+                    <img className="card-img-top" src="https://www.masscommunicationtalk.com/wp-content/uploads/2011/10/News-handing.gif" alt="Card image cap" />
                 </Grid>
                 <Grid item xs={12} md={8} lg={8}>
                   <Typography size="xl" weight="medium">
-                    <a className="btn" href="#">Anna Feliciano</a>
+                    <a className="btn" href="#">Why people subscribe</a>
                   </Typography>
                   <Typography size="sm" weight="medium">
                     "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
@@ -307,8 +307,22 @@ const COLORS = [getRandomColor(), getRandomColor(), getRandomColor(), getRandomC
               </Grid>
               <Divider />
 
-
-          </Widget>
+              <br />
+              <Grid container spacing={1}>
+                <Grid item xs={12} md={4} lg={4}>
+                    <img className="card-img-top" src="https://www.simplilearn.com/ice9/free_resources_article_thumb/tech_trends_banner_2020.jpg" alt="Card image cap" />
+                </Grid>
+                <Grid item xs={12} md={8} lg={8}>
+                  <Typography size="xl" weight="medium">
+                    <a className="btn" href="#">Top 8 Technology Trends for 2020</a>
+                  </Typography>
+                  <Typography size="sm" weight="medium">
+                    "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
+                  </Typography>
+                </Grid>
+              </Grid>
+              <Divider />
+            </Widget>
       </Grid>
 
     </Grid>
