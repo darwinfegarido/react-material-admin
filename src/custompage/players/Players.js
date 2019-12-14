@@ -1,4 +1,8 @@
 import React, { forwardRef } from 'react';
+import {
+  Redirect
+} from "react-router-dom";
+
 import MaterialTable from 'material-table';
 import AddBox from '@material-ui/icons/AddBox';
 import ArrowDownward from '@material-ui/icons/ArrowDownward';
@@ -36,26 +40,42 @@ const tableIcons = {
     ViewColumn: forwardRef((props, ref) => <ViewColumn {...props} ref={ref} />)
   };
 
-export default function Users() {
+const Button = (props) => {
+
+  const redir = () => {
+    window.location.href = `/#/app/players/${props.id}`
+  }
+
+  return (
+    <div>
+      <button className="btn btn-md btn-info" onClick={() => redir()}>View</button>
+    </div>
+  )
+}
+
+
+
+
+
+export default function Players() {
   const [state, setState] = React.useState({
     columns: [
       { title: 'Name', field: 'name' },
       { title: 'Surname', field: 'surname' },
       { title: 'Birth Year', field: 'birthYear', type: 'numeric' },
-      {
-        title: 'Birth Place',
-        field: 'birthCity',
-        lookup: { 34: 'İstanbul', 63: 'Şanlıurfa' },
-      },
+      { title: 'Birth Place', field: 'birthCity' },
+      { title: 'Details', field: 'action' },
     ],
     data: [
-      { name: 'Mehmet', surname: 'Baran', birthYear: 1987, birthCity: 63 },
-      {
-        name: 'Zerya Betül',
-        surname: 'Baran',
-        birthYear: 2017,
-        birthCity: 34,
-      },
+      { name: 'Mehmet', surname: 'Baran', birthYear: 1987, birthCity: "Istanbul", action: <Button id='asdfasdf'/>},
+      { name: 'Zerya Betül', surname: 'Baran',  birthYear: 2017,   birthCity: "Mexico", action: <Button id="test2"/>  },
+      { name: 'Zerya Betül', surname: 'Baran',  birthYear: 2017,   birthCity: "Mexico", action: <Button />  },
+      { name: 'Zerya Betül', surname: 'Baran',  birthYear: 2017,   birthCity: "Mexico", action: <Button />  },
+      { name: 'Zerya Betül', surname: 'Baran',  birthYear: 2017,   birthCity: "Mexico", action: <Button />  },
+      { name: 'Zerya Betül', surname: 'Baran',  birthYear: 2017,   birthCity: "Mexico", action: <Button />  },
+      { name: 'Zerya Betül', surname: 'Baran',  birthYear: 2017,   birthCity: "Mexico", action: <Button />  },
+      { name: 'Zerya Betül', surname: 'Baran',  birthYear: 2017,   birthCity: "Mexico", action: <Button />  },
+      { name: 'Zerya Betül', surname: 'Baran',  birthYear: 2017,   birthCity: "Mexico", action: <Button />  },
     ],
   });
 
@@ -65,43 +85,7 @@ export default function Users() {
       title="Players"
       columns={state.columns}
       data={state.data}
-      editable={{
-        onRowAdd: newData =>
-          new Promise(resolve => {
-            setTimeout(() => {
-              resolve();
-              setState(prevState => {
-                const data = [...prevState.data];
-                data.push(newData);
-                return { ...prevState, data };
-              });
-            }, 600);
-          }),
-        onRowUpdate: (newData, oldData) =>
-          new Promise(resolve => {
-            setTimeout(() => {
-              resolve();
-              if (oldData) {
-                setState(prevState => {
-                  const data = [...prevState.data];
-                  data[data.indexOf(oldData)] = newData;
-                  return { ...prevState, data };
-                });
-              }
-            }, 600);
-          }),
-        onRowDelete: oldData =>
-          new Promise(resolve => {
-            setTimeout(() => {
-              resolve();
-              setState(prevState => {
-                const data = [...prevState.data];
-                data.splice(data.indexOf(oldData), 1);
-                return { ...prevState, data };
-              });
-            }, 600);
-          }),
-      }}
+
     />
   );
 }

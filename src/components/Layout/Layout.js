@@ -27,6 +27,7 @@ import Videos from "../../custompage/videos";
 
 
 import Users from "../../custompage/users";
+import Players from "../../custompage/players";
 import Redemption from "../../custompage/redemption";
 
 // pages
@@ -60,6 +61,7 @@ function Layout(props) {
 
               <Route path="/app/home" component={Home} />
               <Route path="/app/analytics" component={Analytics} />
+              <Route path="/app/players" component={Players} />
               <Route path="/app/users" component={Users} />
               <Route path="/app/redemptions" component={Redemption} />
 

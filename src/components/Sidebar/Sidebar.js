@@ -56,10 +56,16 @@ const structure = [
   //     { label: "Videos", link: "/app/contents/videos" },
   //   ],
   // },
+  // {
+  //   id: 33,
+  //   label: "User Management",
+  //   link: "/app/users",
+  //   icon: <TypographyIcon />
+  // },
   {
     id: 33,
-    label: "User Management",
-    link: "/app/users",
+    label: "Player Management",
+    link: "/app/players",
     icon: <TypographyIcon />
   },
   // {
