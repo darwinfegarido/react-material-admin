@@ -1,6 +1,11 @@
 import React, { forwardRef } from 'react';
 import {
-  Redirect
+  Route,
+  Router,
+  Link,
+  Switch,
+  Redirect,
+  withRouter,
 } from "react-router-dom";
 
 import MaterialTable from 'material-table';
@@ -41,14 +46,12 @@ const tableIcons = {
   };
 
 const Button = (props) => {
-
-  const redir = () => {
-    window.location.href = `/#/app/players/${props.id}`
-  }
-
+  const link = `/app/profile/${props.id}`
   return (
     <div>
-      <button className="btn btn-md btn-info" onClick={() => redir()}>View</button>
+      <Link to={link} >
+        <button className="btn btn-md btn-info" >View</button>
+      </Link>
     </div>
   )
 }
@@ -60,22 +63,21 @@ const Button = (props) => {
 export default function Players() {
   const [state, setState] = React.useState({
     columns: [
-      { title: 'Name', field: 'name' },
-      { title: 'Surname', field: 'surname' },
-      { title: 'Birth Year', field: 'birthYear', type: 'numeric' },
-      { title: 'Birth Place', field: 'birthCity' },
-      { title: 'Details', field: 'action' },
+      { title: 'Player id', field: 'id' },
+      { title: 'Joined', field: 'date_joined' },
+      { title: 'Login', field: 'date_login' },
+      { title: 'Status', field: 'status' },
+      { title: 'Online', field: 'online' },
+      { title: 'View', field: 'action' },
     ],
     data: [
-      { name: 'Mehmet', surname: 'Baran', birthYear: 1987, birthCity: "Istanbul", action: <Button id='asdfasdf'/>},
-      { name: 'Zerya Betül', surname: 'Baran',  birthYear: 2017,   birthCity: "Mexico", action: <Button id="test2"/>  },
-      { name: 'Zerya Betül', surname: 'Baran',  birthYear: 2017,   birthCity: "Mexico", action: <Button />  },
-      { name: 'Zerya Betül', surname: 'Baran',  birthYear: 2017,   birthCity: "Mexico", action: <Button />  },
-      { name: 'Zerya Betül', surname: 'Baran',  birthYear: 2017,   birthCity: "Mexico", action: <Button />  },
-      { name: 'Zerya Betül', surname: 'Baran',  birthYear: 2017,   birthCity: "Mexico", action: <Button />  },
-      { name: 'Zerya Betül', surname: 'Baran',  birthYear: 2017,   birthCity: "Mexico", action: <Button />  },
-      { name: 'Zerya Betül', surname: 'Baran',  birthYear: 2017,   birthCity: "Mexico", action: <Button />  },
-      { name: 'Zerya Betül', surname: 'Baran',  birthYear: 2017,   birthCity: "Mexico", action: <Button />  },
+      { id: '7B766FCB794C38CE', date_joined: new Date('2019-11-10 12:33:48').toDateString(), date_login: new Date('2019-11-10 12:33:48').toDateString(), status: 1, online: 1, action: <Button id='7B766FCB794C38CE'/>},
+      { id: '7B766FCB794C38CE', date_joined: new Date('2019-11-10 12:33:48').toDateString(), date_login: new Date('2019-11-10 12:33:48').toDateString(), status: 1, online: 1, action: <Button id='asdfasdf'/>},
+      { id: '7B766FCB794C38CE', date_joined: new Date('2019-11-10 12:33:48').toDateString(), date_login: new Date('2019-11-10 12:33:48').toDateString(), status: 1, online: 1, action: <Button id='asdfasdf'/>},
+      { id: '7B766FCB794C38CE', date_joined: new Date('2019-11-10 12:33:48').toDateString(), date_login: new Date('2019-11-10 12:33:48').toDateString(), status: 1, online: 1, action: <Button id='asdfasdf'/>},
+      { id: '7B766FCB794C38CE', date_joined: new Date('2019-11-10 12:33:48').toDateString(), date_login: new Date('2019-11-10 12:33:48').toDateString(), status: 1, online: 1, action: <Button id='asdfasdf'/>},
+      { id: '7B766FCB794C38CE', date_joined: new Date('2019-11-10 12:33:48').toDateString(), date_login: new Date('2019-11-10 12:33:48').toDateString(), status: 1, online: 1, action: <Button id='asdfasdf'/>},
+
     ],
   });
 

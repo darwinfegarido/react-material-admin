@@ -144,6 +144,7 @@ async function register(dispatch, firstname, lastname, email, password, history,
 }
 
 function signOut(dispatch, history, setToken) {
+  // localStorage.setItem('id_token', '0')
   setToken('')
   dispatch({ type: "SIGN_OUT_SUCCESS" });
   history.push("/login");

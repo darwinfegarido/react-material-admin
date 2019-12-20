@@ -1,6 +1,6 @@
 {
-  "name": "Players",
+  "name": "Profile",
   "version": "1.0.0",
   "private": true,
-  "main": "Players.js"
+  "main": "Profile.js"
 }

@@ -28,6 +28,7 @@ import Videos from "../../custompage/videos";
 
 import Users from "../../custompage/users";
 import Players from "../../custompage/players";
+import Profile from "../../custompage/profile";
 import Redemption from "../../custompage/redemption";
 
 // pages
@@ -62,6 +63,9 @@ function Layout(props) {
               <Route path="/app/home" component={Home} />
               <Route path="/app/analytics" component={Analytics} />
               <Route path="/app/players" component={Players} />
+              <Route exact path="/app/profile/:id" component={Profile} />
+
+
               <Route path="/app/users" component={Users} />
               <Route path="/app/redemptions" component={Redemption} />
 
