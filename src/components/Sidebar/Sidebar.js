@@ -42,20 +42,20 @@ const structure = [
   //   icon: <NotificationsIcon />
   // },
   //
-  // {
-  //   id: 32,
-  //   label: "Navigation",
-  //   link: "/app/contents",
-  //   icon: <UIElementsIcon />,
-  //   children: [
-  //     { label: "Contents", link: "/app/contents/main" },
-  //     { label: "Promotions", link: "/app/contents/promotion" },
-  //     { label: "Games", link: "/app/contents/games" },
-  //     { label: "Articles", link: "/app/contents/articles" },
-  //     { label: "Banners", link: "/app/contents/banners" },
-  //     { label: "Videos", link: "/app/contents/videos" },
-  //   ],
-  // },
+  {
+    id: 32,
+    label: "Navigation",
+    link: "/app/contents",
+    icon: <UIElementsIcon />,
+    children: [
+      { label: "Contents", link: "/app/contents/main" },
+      // { label: "Promotions", link: "/app/contents/promotion" },
+      // { label: "Games", link: "/app/contents/games" },
+      // { label: "Articles", link: "/app/contents/articles" },
+      // { label: "Banners", link: "/app/contents/banners" },
+      // { label: "Videos", link: "/app/contents/videos" },
+    ],
+  },
   // {
   //   id: 33,
   //   label: "User Management",

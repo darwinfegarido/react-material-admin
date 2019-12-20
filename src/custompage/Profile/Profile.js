@@ -97,7 +97,35 @@ const Form = (props) => {
 
           <div className="col-lg-4 col-md-6 col-sm-12">
             <div className="form-group">
+              <label for="email">Email Verified:</label>
+              <input type="text" className="form-control" placeholder="Email" value='test' id="email" />
+            </div>
+          </div>
+
+          <div className="col-lg-4 col-md-6 col-sm-12">
+            <div className="form-group">
+              <label for="email">Secret Question:</label>
+              <input type="email" className="form-control" placeholder="Email" value='test' id="email" />
+            </div>
+          </div>
+
+          <div className="col-lg-4 col-md-6 col-sm-12">
+            <div className="form-group">
+              <label for="email">User Type:</label>
+              <input type="email" className="form-control" placeholder="Email" value='test' id="email" />
+            </div>
+          </div>
+
+          <div className="col-lg-4 col-md-6 col-sm-12">
+            <div className="form-group">
               <label for="gender">Gender:</label>
+              <input type="text" className="form-control" placeholder="Gender" value='test' id="gender" />
+            </div>
+          </div>
+
+          <div className="col-lg-4 col-md-6 col-sm-12">
+            <div className="form-group">
+              <label for="gender">Age:</label>
               <input type="text" className="form-control" placeholder="Gender" value='test' id="gender" />
             </div>
           </div>
@@ -111,6 +139,41 @@ const Form = (props) => {
 
           <div className="col-lg-4 col-md-6 col-sm-12">
             <div className="form-group">
+              <label for="gender">Address 1:</label>
+              <input type="text" className="form-control" placeholder="Gender" value='test' id="gender" />
+            </div>
+          </div>
+
+          <div className="col-lg-4 col-md-6 col-sm-12">
+            <div className="form-group">
+              <label for="gender">Address 2:</label>
+              <input type="text" className="form-control" placeholder="Gender" value='test' id="gender" />
+            </div>
+          </div>
+
+          <div className="col-lg-4 col-md-6 col-sm-12">
+            <div className="form-group">
+              <label for="gender">Contact Number:</label>
+              <input type="text" className="form-control" placeholder="Gender" value='test' id="gender" />
+            </div>
+          </div>
+
+          <div className="col-lg-4 col-md-6 col-sm-12">
+            <div className="form-group">
+              <label for="gender">Marital Status:</label>
+              <input type="text" className="form-control" placeholder="Gender" value='test' id="gender" />
+            </div>
+          </div>
+
+          <div className="col-lg-4 col-md-6 col-sm-12">
+            <div className="form-group">
+              <label for="gender">Children:</label>
+              <input type="text" className="form-control" placeholder="Gender" value='test' id="gender" />
+            </div>
+          </div>
+
+          <div className="col-lg-4 col-md-6 col-sm-12">
+            <div className="form-group">
               <label for="occupation">Occupation:</label>
               <input type="text" className="form-control" placeholder="Occupation" value='test' id="occupation" />
             </div>
@@ -118,15 +181,71 @@ const Form = (props) => {
 
           <div className="col-lg-4 col-md-6 col-sm-12">
             <div className="form-group">
-              <label for="email">Children:</label>
+              <label for="email">Education Level:</label>
               <input type="number" className="form-control" placeholder="Email" value='test' id="children" />
             </div>
           </div>
 
           <div className="col-lg-4 col-md-6 col-sm-12">
             <div className="form-group">
-              <label for="education">Education:</label>
+              <label for="education">School:</label>
               <input type="text" className="form-control" placeholder="E" value='test' id="education" />
+            </div>
+          </div>
+
+          <div className="col-lg-4 col-md-6 col-sm-12">
+            <div className="form-group">
+              <label for="gender">Hobbies and Interest:</label>
+              <input type="text" className="form-control" placeholder="Gender" value='test' id="gender" />
+            </div>
+          </div>
+
+          <div className="col-lg-4 col-md-6 col-sm-12">
+            <div className="form-group">
+              <label for="gender">Height:</label>
+              <input type="text" className="form-control" placeholder="Gender" value='test' id="gender" />
+            </div>
+          </div>
+
+          <div className="col-lg-4 col-md-6 col-sm-12">
+            <div className="form-group">
+              <label for="gender">Weight:</label>
+              <input type="text" className="form-control" placeholder="Gender" value='test' id="gender" />
+            </div>
+          </div>
+
+          <div className="col-lg-4 col-md-6 col-sm-12">
+            <div className="form-group">
+              <label for="gender">Built Type:</label>
+              <input type="text" className="form-control" placeholder="Gender" value='test' id="gender" />
+            </div>
+          </div>
+
+          <div className="col-lg-4 col-md-6 col-sm-12">
+            <div className="form-group">
+              <label for="gender">Foot size:</label>
+              <input type="text" className="form-control" placeholder="Gender" value='test' id="gender" />
+            </div>
+          </div>
+
+          <div className="col-lg-4 col-md-6 col-sm-12">
+            <div className="form-group">
+              <label for="gender">Mobile Device:</label>
+              <input type="text" className="form-control" placeholder="Gender" value='test' id="gender" />
+            </div>
+          </div>
+
+          <div className="col-lg-4 col-md-6 col-sm-12">
+            <div className="form-group">
+              <label for="gender">Games you Play:</label>
+              <input type="text" className="form-control" placeholder="Gender" value='test' id="gender" />
+            </div>
+          </div>
+
+          <div className="col-lg-4 col-md-6 col-sm-12">
+            <div className="form-group">
+              <label for="gender">App you use:</label>
+              <input type="text" className="form-control" placeholder="Gender" value='test' id="gender" />
             </div>
           </div>
 
