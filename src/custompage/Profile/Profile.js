@@ -17,9 +17,15 @@ import Widget from "../../components/Widget";
 import { Typography } from "../../components/Wrappers";
 const $ = require('jquery')
 
+const Input = ({ type, value, id }) => {
+  const [newValue, setValue] = useState(value)
+  return <input type={type} className="form-control" value={newValue} id={id} onChange={(e) => setValue(e.target.value)}  />
+
+}
+
 const Form = (props) => {
   const [datas, setDatas] = useState()
-  const [name, setName] = useState('test')
+
   const changeStatus = () => {
     props.setDisable(1)
   }
@@ -49,15 +55,9 @@ const Form = (props) => {
       joined_date:joined_date,
       updated:updated,
     })
+    changeStatus()
+    props.setSuccess(1)
   }
-
-  const setValue = (e, id) => {
-    const key = e.key
-    setName(name + key)
-  }
-
-
-
 
   return (
     <>
@@ -68,21 +68,21 @@ const Form = (props) => {
           <div className="col-lg-4 col-md-6 col-sm-12">
             <div className="form-group">
               <label for="displayName">Display Name:</label>
-              <input type="text" className="form-control" placeholder="Display Name" value={name} id="displayName" onKeyPress={(e) => setValue(e, "displayName")}  />
+              <Input type="text" id="displayName" value="Berlin" />
             </div>
           </div>
 
           <div className="col-lg-4 col-md-6 col-sm-12">
             <div className="form-group">
               <label for="firstname">First Name:</label>
-              <input type="text" className="form-control" placeholder="First Name" value='test' id="firstname" />
+              <Input type="text"  value='test' id="firstname" />
             </div>
           </div>
 
           <div className="col-lg-4 col-md-6 col-sm-12">
             <div className="form-group">
               <label for="lastname">Last Name:</label>
-              <input type="text" className="form-control" placeholder="Fast Name" value='test' id="lastname" />
+              <Input type="text" className="form-control" placeholder="Fast Name" value='test' id="lastname" />
             </div>
           </div>
         </div>
@@ -91,175 +91,175 @@ const Form = (props) => {
           <div className="col-lg-4 col-md-6 col-sm-12">
             <div className="form-group">
               <label for="email">Email address:</label>
-              <input type="email" className="form-control" placeholder="Email" value='test' id="email" />
+              <Input type="email" className="form-control" placeholder="Email" value='test' id="email" />
             </div>
           </div>
 
           <div className="col-lg-4 col-md-6 col-sm-12">
             <div className="form-group">
               <label for="email">Email Verified:</label>
-              <input type="text" className="form-control" placeholder="Email" value='test' id="email" />
+              <Input type="text" className="form-control" placeholder="Email" value='test' id="email" />
             </div>
           </div>
 
           <div className="col-lg-4 col-md-6 col-sm-12">
             <div className="form-group">
               <label for="email">Secret Question:</label>
-              <input type="email" className="form-control" placeholder="Email" value='test' id="email" />
+              <Input type="email" className="form-control" placeholder="Email" value='test' id="email" />
             </div>
           </div>
 
           <div className="col-lg-4 col-md-6 col-sm-12">
             <div className="form-group">
               <label for="email">User Type:</label>
-              <input type="email" className="form-control" placeholder="Email" value='test' id="email" />
+              <Input type="email" className="form-control" placeholder="Email" value='test' id="email" />
             </div>
           </div>
 
           <div className="col-lg-4 col-md-6 col-sm-12">
             <div className="form-group">
               <label for="gender">Gender:</label>
-              <input type="text" className="form-control" placeholder="Gender" value='test' id="gender" />
+              <Input type="text" className="form-control" placeholder="Gender" value='test' id="gender" />
             </div>
           </div>
 
           <div className="col-lg-4 col-md-6 col-sm-12">
             <div className="form-group">
               <label for="gender">Age:</label>
-              <input type="text" className="form-control" placeholder="Gender" value='test' id="gender" />
+              <Input type="text" className="form-control" placeholder="Gender" value='test' id="gender" />
             </div>
           </div>
 
           <div className="col-lg-4 col-md-6 col-sm-12">
             <div className="form-group">
               <label for="birthday">Birthday:</label>
-              <input type="date" className="form-control" placeholder="Birthday" value='test' id="birthday" />
+              <Input type="date" className="form-control" placeholder="Birthday" value='test' id="birthday" />
             </div>
           </div>
 
           <div className="col-lg-4 col-md-6 col-sm-12">
             <div className="form-group">
               <label for="gender">Address 1:</label>
-              <input type="text" className="form-control" placeholder="Gender" value='test' id="gender" />
+              <Input type="text" className="form-control" placeholder="Gender" value='test' id="gender" />
             </div>
           </div>
 
           <div className="col-lg-4 col-md-6 col-sm-12">
             <div className="form-group">
               <label for="gender">Address 2:</label>
-              <input type="text" className="form-control" placeholder="Gender" value='test' id="gender" />
+              <Input type="text" className="form-control" placeholder="Gender" value='test' id="gender" />
             </div>
           </div>
 
           <div className="col-lg-4 col-md-6 col-sm-12">
             <div className="form-group">
               <label for="gender">Contact Number:</label>
-              <input type="text" className="form-control" placeholder="Gender" value='test' id="gender" />
+              <Input type="text" className="form-control" placeholder="Gender" value='test' id="gender" />
             </div>
           </div>
 
           <div className="col-lg-4 col-md-6 col-sm-12">
             <div className="form-group">
               <label for="gender">Marital Status:</label>
-              <input type="text" className="form-control" placeholder="Gender" value='test' id="gender" />
+              <Input type="text" className="form-control" placeholder="Gender" value='test' id="gender" />
             </div>
           </div>
 
           <div className="col-lg-4 col-md-6 col-sm-12">
             <div className="form-group">
-              <label for="gender">Children:</label>
-              <input type="text" className="form-control" placeholder="Gender" value='test' id="gender" />
+              <label for="children">Children:</label>
+              <Input type="text" className="form-control" placeholder="Gender" value='test' id="children" />
             </div>
           </div>
 
           <div className="col-lg-4 col-md-6 col-sm-12">
             <div className="form-group">
               <label for="occupation">Occupation:</label>
-              <input type="text" className="form-control" placeholder="Occupation" value='test' id="occupation" />
+              <Input type="text" className="form-control" placeholder="Occupation" value='test' id="occupation" />
             </div>
           </div>
 
           <div className="col-lg-4 col-md-6 col-sm-12">
             <div className="form-group">
-              <label for="email">Education Level:</label>
-              <input type="number" className="form-control" placeholder="Email" value='test' id="children" />
+              <label for="education">Education Level:</label>
+              <Input type="text" value='test' id="education" />
             </div>
           </div>
 
           <div className="col-lg-4 col-md-6 col-sm-12">
             <div className="form-group">
-              <label for="education">School:</label>
-              <input type="text" className="form-control" placeholder="E" value='test' id="education" />
+              <label for="school">School:</label>
+              <Input type="text" value='test' id="school" />
             </div>
           </div>
 
           <div className="col-lg-4 col-md-6 col-sm-12">
             <div className="form-group">
               <label for="gender">Hobbies and Interest:</label>
-              <input type="text" className="form-control" placeholder="Gender" value='test' id="gender" />
+              <Input type="text" className="form-control" placeholder="Gender" value='test' id="gender" />
             </div>
           </div>
 
           <div className="col-lg-4 col-md-6 col-sm-12">
             <div className="form-group">
               <label for="gender">Height:</label>
-              <input type="text" className="form-control" placeholder="Gender" value='test' id="gender" />
+              <Input type="text" className="form-control" placeholder="Gender" value='test' id="gender" />
             </div>
           </div>
 
           <div className="col-lg-4 col-md-6 col-sm-12">
             <div className="form-group">
               <label for="gender">Weight:</label>
-              <input type="text" className="form-control" placeholder="Gender" value='test' id="gender" />
+              <Input type="text" className="form-control" placeholder="Gender" value='test' id="gender" />
             </div>
           </div>
 
           <div className="col-lg-4 col-md-6 col-sm-12">
             <div className="form-group">
               <label for="gender">Built Type:</label>
-              <input type="text" className="form-control" placeholder="Gender" value='test' id="gender" />
+              <Input type="text" className="form-control" placeholder="Gender" value='test' id="gender" />
             </div>
           </div>
 
           <div className="col-lg-4 col-md-6 col-sm-12">
             <div className="form-group">
               <label for="gender">Foot size:</label>
-              <input type="text" className="form-control" placeholder="Gender" value='test' id="gender" />
+              <Input type="text" className="form-control" placeholder="Gender" value='test' id="gender" />
             </div>
           </div>
 
           <div className="col-lg-4 col-md-6 col-sm-12">
             <div className="form-group">
               <label for="gender">Mobile Device:</label>
-              <input type="text" className="form-control" placeholder="Gender" value='test' id="gender" />
+              <Input type="text" className="form-control" placeholder="Gender" value='test' id="gender" />
             </div>
           </div>
 
           <div className="col-lg-4 col-md-6 col-sm-12">
             <div className="form-group">
               <label for="gender">Games you Play:</label>
-              <input type="text" className="form-control" placeholder="Gender" value='test' id="gender" />
+              <Input type="text" className="form-control" placeholder="Gender" value='test' id="gender" />
             </div>
           </div>
 
           <div className="col-lg-4 col-md-6 col-sm-12">
             <div className="form-group">
               <label for="gender">App you use:</label>
-              <input type="text" className="form-control" placeholder="Gender" value='test' id="gender" />
+              <Input type="text" className="form-control" placeholder="Gender" value='test' id="gender" />
             </div>
           </div>
 
           <div className="col-lg-4 col-md-6 col-sm-12">
             <div className="form-group">
               <label for="joined_date">Joined Date:</label>
-              <input type="date" className="form-control" placeholder="Joined Date" value='test' id="joined_date" />
+              <Input type="date" className="form-control" placeholder="Joined Date" value='test' id="joined_date" />
             </div>
           </div>
 
           <div className="col-lg-4 col-md-6 col-sm-12">
             <div className="form-group">
               <label for="updated">Update:</label>
-              <input type="date" className="form-control" placeholder="Updated" value='test' id="updated" />
+              <Input type="date" className="form-control" placeholder="Updated" value='test' id="updated" />
             </div>
           </div>
 
@@ -301,10 +301,11 @@ const Header = (props) => {
 }
 
 export default function Profile({ match }) {
-  const [state, setState] = React.useState();
+  const [success, setSuccess] = useState(0);
   const [ disable, setDisable ] = useState(1);
   const id = match.params.id
   const title = `Player id : ${id}`
+  console.log(success)
   return (
     <>
       <button className="btn btn-default btn-md">
@@ -315,11 +316,14 @@ export default function Profile({ match }) {
 
         </Typography>
       </button>
+      {(success) ? <div className="alert alert-success alert-dismissible" >
+        <strong>Success!</strong> Player Updated.
+      </div> : ""}
       <br />
       <Grid container spacing={1}>
         <Grid item xs={12} md={12} lg={12}>
           <Widget upperTitle disableWidgetMenu header={ <Header id={id} setDisable={setDisable} disable={disable} /> } >
-            <Form disable={disable} setDisable={setDisable} />
+            <Form disable={disable} setDisable={setDisable} setSuccess={setSuccess} />
           </Widget>
         </Grid>
       </Grid>

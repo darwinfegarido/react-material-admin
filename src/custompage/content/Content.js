@@ -68,7 +68,7 @@ const Form = (props) => {
       <form >
         <fieldset >
         <div className="row">
-          
+
 
           <div className="col-lg-12 col-md-12 col-sm-12">
             <div className="form-group">
@@ -108,7 +108,7 @@ const Form = (props) => {
 }
 
 
-export default function Profile({ match }) {
+export default function Content({ match }) {
   const [state, setState] = React.useState();
   const [ disable, setDisable ] = useState(1);
   const id = match.params.id
