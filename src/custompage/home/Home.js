@@ -14,6 +14,7 @@ import {
   ComposedChart,
   AreaChart,
   LineChart,
+  BarChart,
   Line,
   Area,
   PieChart,
@@ -128,9 +129,8 @@ const appVersion = [
 ]
 
 const data01 = [
-  { name: 'IOS', value: 400 }, { name: 'Browser', value: 300 },
-  { name: 'Android', value: 300 }, { name: 'Others', value: 200 },
-  { name: 'Windows', value: 278 },
+  { name: 'IOS', value: 400 },
+  { name: 'Android', value: 300 },
 ];
 
 
@@ -219,15 +219,13 @@ const COLORS = [getRandomColor(), getRandomColor(), getRandomColor(), getRandomC
       <Grid item xs={12} md={12} lg={12}>
         <Widget title="Monthly Active Users" upperTitle noBodyPadding disableWidgetMenu>
           <ResponsiveContainer width="100%" height={200}>
-              <LineChart width={800} height={250} data={data}
+              <BarChart width={800} height={250} data={data}
                 margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
-                <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="name" />
                 <YAxis />
                 <Tooltip />
-                <Legend />
-                <Line type="monotone" dataKey="users" stroke="#8884d8" strokeWidth={5} />
-              </LineChart>
+                <Bar type="monotone" dataKey="users" fill="#413ea0"  />
+              </BarChart>
           </ResponsiveContainer>
         </Widget>
       </Grid>
