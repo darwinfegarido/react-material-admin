@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, useState } from 'react';
 import {
   Route,
   Router,
@@ -19,9 +19,11 @@ import {
 import Widget from "../../components/Widget";
 import { Typography } from "../../components/Wrappers";
 import { ArrowBack as ArrowBackIcon } from '@material-ui/icons';
+import ToggleButton from '@material-ui/lab/ToggleButton';
 
 import MaterialTable from 'material-table';
 import AddBox from '@material-ui/icons/AddBox';
+import CheckIcon from '@material-ui/icons/Check';
 import ArrowDownward from '@material-ui/icons/ArrowDownward';
 import Check from '@material-ui/icons/Check';
 import ChevronLeft from '@material-ui/icons/ChevronLeft';
@@ -36,6 +38,8 @@ import Remove from '@material-ui/icons/Remove';
 import SaveAlt from '@material-ui/icons/SaveAlt';
 import Search from '@material-ui/icons/Search';
 import ViewColumn from '@material-ui/icons/ViewColumn';
+
+
 
 const tableIcons = {
     Add: forwardRef((props, ref) => <AddBox {...props} ref={ref} />),
@@ -69,6 +73,33 @@ const Button = (props) => {
   )
 }
 
+const Input = (props) => {
+  const [newValue, setValue] = useState(props.value)
+  return <input type="text"  className="form-control" value={newValue} onChange={ e => setValue(e.target.value) } id={props.id}/>
+}
+
+const TextArea = (props) => {
+  const [newValue, setValue] = useState(props.value)
+  return <textarea type="text"  className="form-control" value={newValue} onChange={ e => setValue(e.target.value) } id={props.id}/>
+}
+
+const Toggle = () => {
+  const [selected, setSelected] = React.useState(false);
+
+  return (
+    <ToggleButton
+      value="check"
+      selected={selected}
+      onChange={() => {
+        setSelected(!selected);
+      }}
+    >
+      <CheckIcon />
+    </ToggleButton>
+  );
+}
+
+
 const Form = (props) => {
   return (
     <>
@@ -79,31 +110,39 @@ const Form = (props) => {
 
           <div className="col-lg-12 col-md-12 col-sm-12">
             <div className="form-group">
-              <label for="banner">Title:</label>
-              <input type="text" className="form-control" placeholder="Email" value='test' id="banner" />
+              <label for="title">Title:</label>
+              <Input value="10 Article Headline Examples That Got Us 10 Million Reader" id="title" />
             </div>
           </div>
 
           <div className="col-lg-12 col-md-12 col-sm-12">
             <div className="form-group">
               <label for="description">Description:</label>
-              <textarea type="text" className="form-control" placeholder="Email" value='test' id="description" />
+              <TextArea value='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+                id="description"/>
             </div>
           </div>
 
           <div className="col-lg-12 col-md-12 col-sm-12">
             <div className="form-group">
-              <label for="about">Author:</label>
-              <input type="text" className="form-control" placeholder="Email" value='test' id="about" />
+              <label for="author">Author:</label>
+              <Input value='Profesor' id="author" />
             </div>
           </div>
 
           <div className="col-lg-12 col-md-12 col-sm-12">
             <div className="form-group">
-              <label for="about">Status:</label>
-              <input type="text" className="form-control" placeholder="Email" value='test' id="about" />
+              <label for="status">Status:</label>
+              <Input  value='active' id="status" />
             </div>
           </div>
+
+          <div className="col-lg-12 col-md-12 col-sm-12">
+            <div className="form-group">
+              <Toggle />
+            </div>
+          </div>
+
 
         </div>
         </fieldset>
@@ -156,6 +195,7 @@ export default function Artiles() {
           title="Articles"
           columns={state.columns}
           data={state.data}
+
         /> :
         <div>
           <button className="btn btn-default btn-md" onClick={() => setPage(1)}>

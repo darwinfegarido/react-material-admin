@@ -1,115 +1,43 @@
 import { makeStyles } from "@material-ui/styles";
 
 export default makeStyles(theme => ({
-  card: {
+  widgetWrapper: {
+    display: "flex",
     minHeight: "100%",
-    display: "flex",
-    flexDirection: "column",
   },
-  visitsNumberContainer: {
-    display: "flex",
-    alignItems: "center",
-    flexGrow: 1,
+  widgetHeader: {
+    padding: theme.spacing(3),
     paddingBottom: theme.spacing(1),
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
   },
-  progressSection: {
-    marginBottom: theme.spacing(1),
+  widgetRoot: {
+    boxShadow: theme.customShadows.widget,
   },
-  progressTitle: {
-    marginBottom: theme.spacing(2),
+  widgetBody: {
+    paddingBottom: theme.spacing(3),
+    paddingRight: theme.spacing(3),
+    paddingLeft: theme.spacing(3),
   },
-  progress: {
-    marginBottom: theme.spacing(1),
-    backgroundColor: theme.palette.primary.main,
+  noPadding: {
+    padding: 0,
   },
-  pieChartLegendWrapper: {
-    height: "100%",
+  paper: {
     display: "flex",
     flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "flex-end",
-    marginRight: theme.spacing(1),
-  },
-  legendItemContainer: {
-    display: "flex",
-    alignItems: "center",
-    marginBottom: theme.spacing(1),
-  },
-  fullHeightBody: {
-    display: "flex",
     flexGrow: 1,
-    flexDirection: "column",
-    justifyContent: "space-between",
+    overflow: "hidden",
   },
-  tableWidget: {
-    overflowX: "auto",
-  },
-  progressBar: {
-    backgroundColor: theme.palette.warning.main,
-  },
-  performanceLegendWrapper: {
-    display: "flex",
-    flexGrow: 1,
-    alignItems: "center",
-    marginBottom: theme.spacing(1),
-  },
-  legendElement: {
-    display: "flex",
-    alignItems: "center",
-    marginRight: theme.spacing(2),
-  },
-  legendElementText: {
-    marginLeft: theme.spacing(1),
-  },
-  serverOverviewElement: {
-    display: "flex",
-    alignItems: "center",
-    maxWidth: "100%",
-  },
-  serverOverviewElementText: {
-    minWidth: 145,
-    paddingRight: theme.spacing(2),
-  },
-  serverOverviewElementChartWrapper: {
-    width: "100%",
-  },
-  mainChartBody: {
-    overflowX: "auto",
-  },
-  mainChartHeader: {
-    width: "100%",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    [theme.breakpoints.only("xs")]: {
-      flexWrap: "wrap",
+  moreButton: {
+    margin: -theme.spacing(1),
+    padding: 0,
+    width: 40,
+    height: 40,
+    color: theme.palette.text.hint,
+    "&:hover": {
+      backgroundColor: theme.palette.primary.main,
+      color: "rgba(255, 255, 255, 0.35)",
     },
-  },
-  mainChartHeaderLabels: {
-    display: "flex",
-    alignItems: "center",
-    [theme.breakpoints.only("xs")]: {
-      order: 3,
-      width: "100%",
-      justifyContent: "center",
-      marginTop: theme.spacing(3),
-      marginBottom: theme.spacing(2),
-    },
-  },
-  mainChartHeaderLabel: {
-    display: "flex",
-    alignItems: "center",
-    marginLeft: theme.spacing(3),
-  },
-  mainChartSelectRoot: {
-    borderColor: theme.palette.text.hint + "80 !important",
-  },
-  mainChartSelect: {
-    padding: 10,
-    paddingRight: 25,
-  },
-  mainChartLegentElement: {
-    fontSize: "18px !important",
-    marginLeft: theme.spacing(1),
   },
 }));
