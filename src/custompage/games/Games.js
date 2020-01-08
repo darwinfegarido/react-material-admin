@@ -252,21 +252,21 @@ const ListGames = ({setViews, games}) => {
 
   return (<>
     <Confirmation isConfirm={isConfirm} setConfirm={setConfirm} />
-    <Typography >
-      <button className="btn btn-md btn-success" onClick={() => setViews(1)} >
-          Add Game
-      </button>
-    </Typography>
-    <br />
+
     <Grid container spacing={1}>
       <Grid row xs={12} md={7} lg={7}>
-
-          <MaterialTable
-            icons={tableIcons}
-            title="Game List"
-            columns={state.columns}
-            data={state.data}
-          />
+        <Typography >
+          <button className="btn btn-md btn-success" onClick={() => setViews(1)} >
+              Add Game
+          </button>
+        </Typography>
+        <br />
+        <MaterialTable
+          icons={tableIcons}
+          title="Game List"
+          columns={state.columns}
+          data={state.data}
+        />
 
       </Grid>
       <Grid row xs={12} md={5} lg={5}>
