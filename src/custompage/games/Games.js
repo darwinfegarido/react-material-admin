@@ -250,8 +250,6 @@ const ListGames = ({setViews, games}) => {
     ],
   });
 
-  console.log(isConfirm)
-
   return (<>
     <Confirmation isConfirm={isConfirm} setConfirm={setConfirm} />
     <Typography >
@@ -260,16 +258,94 @@ const ListGames = ({setViews, games}) => {
       </button>
     </Typography>
     <br />
-    <Grid container spacing={2}>
-      <Grid row xs={12} md={8} lg={8}>
+    <Grid container spacing={1}>
+      <Grid row xs={12} md={7} lg={7}>
 
           <MaterialTable
             icons={tableIcons}
-            title="Articles"
+            title="Game List"
             columns={state.columns}
             data={state.data}
           />
 
+      </Grid>
+      <Grid row xs={12} md={5} lg={5}>
+        <Widget upperTitle disableWidgetMenu title='Leaderboards' >
+          <div className="table-responsive">
+            <table className="table table-hover">
+              <thead>
+                <tr className="">
+                  <th scope="col">Rank</th>
+                  <th scope="col">Player</th>
+                  <th scope="col">Game</th>
+                  <th scope="col">Coins</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="table-success">
+                  <td scope="row" >1st</td>
+                  <td>John Doe</td>
+                  <td>Tower Defense</td>
+                  <td>23,012</td>
+                </tr>
+                <tr className="table-info">
+                  <td scope="row" >2nd</td>
+                  <td>John Doe</td>
+                  <td>Tower Defense</td>
+                  <td>23,012</td>
+                </tr>
+                <tr className="table-warning">
+                  <td scope="row" >3rd</td>
+                  <td>John Doe</td>
+                  <td>Tower Defense</td>
+                  <td>23,012</td>
+                </tr>
+                <tr className="table-active">
+                  <td scope="row" >4th</td>
+                  <td>John Doe</td>
+                  <td>Tower Defense</td>
+                  <td>23,012</td>
+                </tr>
+                <tr className="table-active">
+                  <td scope="row" >5th</td>
+                  <td>John Doe</td>
+                  <td>Tower Defense</td>
+                  <td>23,012</td>
+                </tr>
+                <tr className="table-active">
+                  <td scope="row" >6th</td>
+                  <td>John Doe</td>
+                  <td>Tower Defense</td>
+                  <td>23,012</td>
+                </tr>
+                <tr className="table-active">
+                  <td scope="row" >7th</td>
+                  <td>John Doe</td>
+                  <td>Tower Defense</td>
+                  <td>23,012</td>
+                </tr>
+                <tr className="table-active">
+                  <td scope="row" >8th</td>
+                  <td>John Doe</td>
+                  <td>Tower Defense</td>
+                  <td>23,012</td>
+                </tr>
+                <tr className="table-active">
+                  <td scope="row" >9th</td>
+                  <td>John Doe</td>
+                  <td>Tower Defense</td>
+                  <td>23,012</td>
+                </tr>
+                <tr className="table-active">
+                  <td scope="row" >10th</td>
+                  <td>John Doe</td>
+                  <td>Tower Defense</td>
+                  <td>23,012</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </Widget>
       </Grid>
     </Grid>
   </>)
