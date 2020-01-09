@@ -26,6 +26,9 @@ import Banners from "../../custompage/banners";
 import Videos from "../../custompage/videos";
 
 
+//Item Management
+import Store from "../../custompage/store";
+
 import Users from "../../custompage/users";
 import Players from "../../custompage/players";
 import Profile from "../../custompage/profile";
@@ -75,11 +78,15 @@ function Layout(props) {
                 render={() => <Redirect to="/app/contents/main" />}
               />
                 <Route path="/app/contents/main" component={Content} />
-                <Route path="/app/contents/promotion" component={Promotions} />
                 <Route path="/app/contents/games" component={Games} />
                 <Route path="/app/contents/articles" component={Articles} />
-                <Route path="/app/contents/banners" component={Banners} />
-                <Route path="/app/contents/videos" component={Videos} />
+
+              <Route
+                exact
+                path="/app/item"
+                render={() => <Redirect to="/app/item/main" />}
+              />
+                <Route path="/app/item/main" component={Store} />
 
             </Switch>
           </div>

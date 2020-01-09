@@ -62,18 +62,33 @@ const structure = [
   //   link: "/app/users",
   //   icon: <TypographyIcon />
   // },
+
+  // {
+  //   id: 34,
+  //   label: "Item Management",
+  //   link: "/app/redemptions",
+  //   icon: <FAQIcon />
+  // },
   {
     id: 33,
+    label: "Item Management",
+    link: "/app/item",
+    icon: <FAQIcon />,
+    children: [
+      { label: "Store", link: "/app/item/main" },
+      // { label: "Promotions", link: "/app/item/promotion" },
+      // { label: "Currency", link: "/app/item/currency" },
+      // { label: "Redemption", link: "/app/item/redemption" },
+      // { label: "Payment", link: "/app/item/payments" },
+      // { label: "Videos", link: "/app/contents/videos" },
+    ],
+  },
+  {
+    id: 34,
     label: "Player Management",
     link: "/app/players",
     icon: <TypographyIcon />
   },
-  // {
-  //   id: 34,
-  //   label: "Redemption",
-  //   link: "/app/redemptions",
-  //   icon: <FAQIcon />
-  // },
   // {
   //   id: 0,
   //   label: "Dashboard",
