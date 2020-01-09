@@ -1,4 +1,4 @@
-import React, { useState, forwardRef } from 'react';
+import React, { useState, forwardRef, useEffect } from 'react';
 import {
   Grid,
   CircularProgress,
@@ -57,10 +57,54 @@ const tableIcons = {
     return <input type={type} className="form-control" value={newValue} id={id} onChange={(e) => setValue(e.target.value)}  />
   }
 
+const getData = (oldData, setState, setLoading, setSuccess) => {
+  const name = document.getElementById('itemname').value
+  const description = document.getElementById('description').value
+  const price = document.getElementById('price').value
+
+  const data = { name: name, price: price  }
+  const newData = [ ...oldData, data]
+  setLoading(1)
+  setTimeout(() => {
+    setLoading(0)
+    setSuccess(1)
+
+    setState(newData)
+  },3000)
+  setTimeout(() => {
+    setSuccess(0)
+  },6000)
+}
+
+const Button = ({ state, setDelete, data}) => {
+
+  const deleteBtn = () => {
+    state.splice(state.indexOf(data), 1)
+    setDelete(1)
+  }
+
+  return (
+    <div>
+        <button type="button" className="btn btn-sm btn-info" ><Edit /></button>&nbsp;
+        <button type="button" className="btn btn-sm btn-danger"  onClick={deleteBtn} ><DeleteOutline /></button>
+    </div>
+  )
+}
+
 export default function Store(props){
-  let classes = useStyles();
+
   const [isLoading, setLoading] = useState(0)
   const [success, setSuccess] = useState(0)
+  const [isDelete, setDelete] = useState('')
+
+
+  let classes = useStyles();
+
+  const columns = [
+    { title: 'Item', field: 'name' },
+    { title: 'Price', field: 'price' },
+    { title: 'Action', field: 'action' },
+  ]
 
   const [state, setState] = useState([
       { name: "Sword", price: 5.1 },
@@ -71,29 +115,14 @@ export default function Store(props){
       { name: "Axe", price: 5.1 },
     ]);
 
-  const columns = [
-    { title: 'Item', field: 'name' },
-    { title: 'Price', field: 'price' },
-    { title: 'Action', field: 'action' },
-  ]
-
-  const getData = (oldData, setState, setLoading, setSuccess) => {
-    const name = document.getElementById('itemname').value
-    const description = document.getElementById('description').value
-    const price = document.getElementById('price').value
-
-    const data = { name: name, price: price  }
-    const newData = [ ...oldData, data]
-    setLoading(1)
-    setTimeout(() => {
-      setLoading(0)
-      setSuccess(1)
-    },3000)
-    setState(newData)
-    setTimeout(() => {
-      setSuccess(0)
-    },6000)
+  if(isDelete){
+    setDelete(0)
   }
+
+  state.map((e, i) => {
+    e['action'] = <Button data={e} state={state} setDelete={setDelete} />
+    return e
+  })
 
   return(
     <>
