@@ -2,5 +2,5 @@
   "name": "Store",
   "version": "1.0.0",
   "private": true,
-  "main": "store.js"
+  "main": "Store.js"
 }
