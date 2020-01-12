@@ -78,7 +78,7 @@ const structure = [
       { label: "Store", link: "/app/item/main" },
       // { label: "Promotions", link: "/app/item/promotion" },
       // { label: "Currency", link: "/app/item/currency" },
-      // { label: "Redemption", link: "/app/item/redemption" },
+      { label: "Redemption", link: "/app/item/redemption" },
       // { label: "Payment", link: "/app/item/payments" },
       // { label: "Videos", link: "/app/contents/videos" },
     ],

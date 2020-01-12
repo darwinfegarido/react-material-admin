@@ -28,11 +28,11 @@ import Videos from "../../custompage/videos";
 
 //Item Management
 import Store from "../../custompage/store";
+import Redemption from "../../custompage/redemption";
 
 import Users from "../../custompage/users";
 import Players from "../../custompage/players";
 import Profile from "../../custompage/profile";
-import Redemption from "../../custompage/redemption";
 
 // pages
 import Dashboard from "../../pages/dashboard";
@@ -87,6 +87,7 @@ function Layout(props) {
                 render={() => <Redirect to="/app/item/main" />}
               />
                 <Route path="/app/item/main" component={Store} />
+                <Route path="/app/item/redemption" component={Redemption} />
 
             </Switch>
           </div>
