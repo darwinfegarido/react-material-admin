@@ -4,6 +4,7 @@ import {
   CircularProgress,
   Fade,
   Typography,
+  TextField,
 } from "@material-ui/core";
 
 // styles
@@ -131,7 +132,7 @@ export default function MainPage(props){
 
         <MaterialTable
           icons={tableIcons}
-          title="Game List"
+          title="Item List"
           columns={columns}
           data={props.state}
         />
@@ -149,22 +150,19 @@ export default function MainPage(props){
 
               <div className="col-lg-12 col-md-12 col-sm-12">
                 <div className="form-group">
-                  <label for="itemname">Item Name:</label>
-                  <Input type="text" id="itemname" value="" />
+                  <TextField id="itemname" label="Item Name" />
                 </div>
               </div>
 
               <div className="col-lg-12 col-md-12 col-sm-12">
                 <div className="form-group">
-                  <label for="description">Description:</label>
-                  <Input  type="text" id="description"  value='' />
+                  <TextField id="description" label="Description" />
                 </div>
               </div>
 
               <div className="col-lg-12 col-md-12 col-sm-12">
                 <div className="form-group">
-                  <label for="price">Price:</label>
-                  <Input type="number" id="price" value='' />
+                  <TextField id="price"  type="number" label="Number" />
                 </div>
               </div>
 
