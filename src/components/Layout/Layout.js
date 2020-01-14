@@ -29,6 +29,7 @@ import Videos from "../../custompage/videos";
 //Item Management
 import Store from "../../custompage/store";
 import Redemption from "../../custompage/redemption";
+import Tracker from "../../custompage/tracker";
 
 import Users from "../../custompage/users";
 import Players from "../../custompage/players";
@@ -88,6 +89,7 @@ function Layout(props) {
               />
                 <Route path="/app/item/main" component={Store} />
                 <Route path="/app/item/redemption" component={Redemption} />
+                <Route path="/app/item/tracker" component={Tracker} />
 
             </Switch>
           </div>
