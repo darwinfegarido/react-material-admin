@@ -60,7 +60,7 @@ const tableIcons = {
     ViewColumn: forwardRef((props, ref) => <ViewColumn {...props} ref={ref} />)
   };
 
-const getData = (oldData, setState, setLoading, setSuccess, selectedDate) => {
+const getData = (oldData, setState, setLoading, setSuccess, selectedDate, setSubmit) => {
   const voucher = document.getElementById('voucher').value
   const product = document.getElementById('product').value
   const value = document.getElementById('value').value
@@ -69,10 +69,12 @@ const getData = (oldData, setState, setLoading, setSuccess, selectedDate) => {
   const data = { voucher: voucher, product:product, value: value, expires:expires }
   const newData = [ ...oldData, data]
   setLoading(1)
+  setSubmit(1)
   setTimeout(() => {
     setLoading(0)
     setSuccess(1)
-
+    setSubmit(0)
+    
     setState(newData)
   },3000)
   setTimeout(() => {
@@ -105,7 +107,8 @@ export default function MainPage(props){
   const [isLoading, setLoading] = useState(0)
   const [success, setSuccess] = useState(0)
   const [isDelete, setDelete] = useState('')
-  const [selectedDate, setSelectedDate] = React.useState(new Date());
+  const [selectedDate, setSelectedDate] = useState(new Date());
+  const [isSubmit, setSubmit] = useState(0)
 
   const handleDateChange = date => {
     setSelectedDate(date);
@@ -160,19 +163,19 @@ export default function MainPage(props){
 
               <div className="col-lg-12 col-md-12 col-sm-12">
                 <div className="form-group">
-                  <TextField id="voucher" label="Serial" />
+                  <TextField disabled={isSubmit} id="voucher" label="Serial" />
                 </div>
               </div>
 
               <div className="col-lg-12 col-md-12 col-sm-12">
                 <div className="form-group">
-                  <TextField id="product" label="Product" />
+                  <TextField disabled={isSubmit} id="product" label="Product" />
                 </div>
               </div>
 
               <div className="col-lg-12 col-md-12 col-sm-12">
                 <div className="form-group">
-                  <TextField id="value"  type="number" label="Value" />
+                  <TextField disabled={isSubmit} id="value"  type="number" label="Value" />
                 </div>
               </div>
 
@@ -185,6 +188,7 @@ export default function MainPage(props){
                       format="MM/dd/yyyy"
                       value={selectedDate}
                       onChange={handleDateChange}
+                      disabled={isSubmit}
                       KeyboardButtonProps={{
                         'aria-label': 'change date',
                       }}
@@ -196,7 +200,7 @@ export default function MainPage(props){
 
             {isLoading ?
               <CircularProgress size={26} className={classes.loginLoader} /> :
-              <button type="button" className="btn btn-sm btn-success" onClick={() => getData(props.state, props.setState, setLoading, setSuccess, selectedDate)}  >Submit</button>
+              <button type="button" className="btn btn-sm btn-success" onClick={() => getData(props.state, props.setState, setLoading, setSuccess, selectedDate, setSubmit)}  >Submit</button>
             }
 
 

@@ -137,7 +137,7 @@ export default function ViewItem(props){
         </div>
       </Fade>
       <Grid container spacing={4}>
-        <Grid item xs={12} md={12} lg={12}>
+        <Grid item xs={12} md={6} lg={6}>
           <Widget upperTitle disableWidgetMenu  header={<Header setEdit={setEdit} isEdit={edit} />} >
           {!edit ?
             <div>
