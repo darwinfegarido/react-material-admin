@@ -91,6 +91,7 @@ const EditDetails = ({details, setEdit, setSuccess, setSelectedDate, selectedDat
                 format="MM/dd/yyyy"
                 value={selectedDate}
                 onChange={handleDateChange}
+                disabled={isSubmit}
                 KeyboardButtonProps={{
                   'aria-label': 'change date',
                 }}
