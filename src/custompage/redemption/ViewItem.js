@@ -1,3 +1,4 @@
+import 'date-fns';
 import React, { useState } from 'react';
 import {
   Grid,
@@ -6,6 +7,12 @@ import {
   Typography,
   TextField,
 } from "@material-ui/core";
+import DateFnsUtils from '@date-io/date-fns';
+import {
+  MuiPickersUtilsProvider,
+  KeyboardTimePicker,
+  KeyboardDatePicker,
+} from '@material-ui/pickers';
 
 // components
 import Widget from "../../components/Widget";
@@ -33,10 +40,14 @@ const Header = ({ setEdit, isEdit }) => {
   )
 }
 
-const EditDetails = ({details, setEdit, setSuccess}) => {
+const EditDetails = ({details, setEdit, setSuccess, setSelectedDate, selectedDate}) => {
   const [isLoading, setLoading] = useState(0)
   const [isSubmit, setSubmit] = useState(0)
   const classes = useStyles()
+
+  const handleDateChange = date => {
+    setSelectedDate(date);
+  };
 
   const getData = () => {
     setLoading(1)
@@ -72,11 +83,20 @@ const EditDetails = ({details, setEdit, setSuccess}) => {
         </div>
 
         <div className="col-lg-12 col-md-12 col-sm-12">
-          <div className="form-group">
-            <TextField id="expires"  type="date" label="Expiration" disabled={isSubmit} defaultValue={details.expires} />
-          </div>
+          <MuiPickersUtilsProvider utils={DateFnsUtils}>
+              <KeyboardDatePicker
+                margin="normal"
+                id="expires"
+                label="Expiration"
+                format="MM/dd/yyyy"
+                value={selectedDate}
+                onChange={handleDateChange}
+                KeyboardButtonProps={{
+                  'aria-label': 'change date',
+                }}
+              />
+          </MuiPickersUtilsProvider>
         </div>
-
       </div>
 
       {isLoading ?
@@ -95,6 +115,10 @@ const EditDetails = ({details, setEdit, setSuccess}) => {
 export default function ViewItem(props){
   const [edit, setEdit] = useState(0)
   const [success, setSuccess] = useState(0)
+  const [selectedDate, setSelectedDate] = React.useState(new Date());
+
+
+
 
   if(success){
     setTimeout(() => setSuccess(0), 3000)
@@ -123,7 +147,7 @@ export default function ViewItem(props){
             </div>
 
           :
-            <EditDetails details={details} setEdit={setEdit} setSuccess={setSuccess}/>
+            <EditDetails details={details} setEdit={setEdit} setSuccess={setSuccess} setSelectedDate={setSelectedDate} selectedDate={selectedDate}/>
           }
           </Widget>
         </Grid>

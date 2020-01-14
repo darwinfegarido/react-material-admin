@@ -1,3 +1,4 @@
+import 'date-fns';
 import React, { useState, forwardRef } from 'react';
 import {
   Grid,
@@ -6,6 +7,12 @@ import {
   Typography,
   TextField,
 } from "@material-ui/core";
+import DateFnsUtils from '@date-io/date-fns';
+import {
+  MuiPickersUtilsProvider,
+  KeyboardTimePicker,
+  KeyboardDatePicker,
+} from '@material-ui/pickers';
 
 // styles
 import useStyles from "./styles";
@@ -53,11 +60,11 @@ const tableIcons = {
     ViewColumn: forwardRef((props, ref) => <ViewColumn {...props} ref={ref} />)
   };
 
-const getData = (oldData, setState, setLoading, setSuccess) => {
+const getData = (oldData, setState, setLoading, setSuccess, selectedDate) => {
   const voucher = document.getElementById('voucher').value
   const product = document.getElementById('product').value
   const value = document.getElementById('value').value
-  const expires = document.getElementById('expires').value
+  const expires = selectedDate.toLocaleDateString()
 
   const data = { voucher: voucher, product:product, value: value, expires:expires }
   const newData = [ ...oldData, data]
@@ -98,6 +105,11 @@ export default function MainPage(props){
   const [isLoading, setLoading] = useState(0)
   const [success, setSuccess] = useState(0)
   const [isDelete, setDelete] = useState('')
+  const [selectedDate, setSelectedDate] = React.useState(new Date());
+
+  const handleDateChange = date => {
+    setSelectedDate(date);
+  };
 
 
 
@@ -165,16 +177,26 @@ export default function MainPage(props){
               </div>
 
               <div className="col-lg-12 col-md-12 col-sm-12">
-                <div className="form-group">
-                  <TextField id="expires"  type="date" label="Expiration" />
-                </div>
+                <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                    <KeyboardDatePicker
+                      margin="normal"
+                      id="expires"
+                      label="Expiration"
+                      format="MM/dd/yyyy"
+                      value={selectedDate}
+                      onChange={handleDateChange}
+                      KeyboardButtonProps={{
+                        'aria-label': 'change date',
+                      }}
+                    />
+                </MuiPickersUtilsProvider>
               </div>
 
             </div>
 
             {isLoading ?
               <CircularProgress size={26} className={classes.loginLoader} /> :
-              <button type="button" className="btn btn-sm btn-success" onClick={() => getData(props.state, props.setState, setLoading, setSuccess)}  >Submit</button>
+              <button type="button" className="btn btn-sm btn-success" onClick={() => getData(props.state, props.setState, setLoading, setSuccess, selectedDate)}  >Submit</button>
             }
 
 
